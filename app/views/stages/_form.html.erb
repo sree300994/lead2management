@@ -1,0 +1,24 @@
+<%= form_for @stage do |f| %>
+	<% if @stage.errors.any? %>
+		<% @stage.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	<% end %>
+
+	<div class="form-group">
+		<label>Name : </label><br/>
+		<%= f.text_field :name, autofocus: true, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Description : </label> <br/>
+		<%= f.text_area :description, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Interest Level : </label> <br/>
+		<%= f.collection_radio_buttons :interest_level, (1..5).map{|n| [n, n]}, :first, :last, class: "form-control" %> <br/>
+	</div>
+
+	<%= f.submit %> or <%= link_to "Back", stages_path %>
+<% end %>

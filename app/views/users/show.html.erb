@@ -1,0 +1,17 @@
+<h2><%= @user.full_name %></h2>
+
+<p><b>Name : </b><%= @user.full_name %></p>
+
+<p><b>Email : </b><%= @user.email %></p>
+
+<p><b>Mobile : </b><%= @user.mobile %></p>
+
+<p><b>Role : </b><%= @user.role.name %></p>
+
+<% if can? :update, @user %>
+	<%= link_to "Edit", edit_user_path(@user) %>
+<% end %>
+
+<% if can? :destroy, @user %>
+	<%= link_to "Destroy", user_path(@user), method: :delete %>
+<% end %>

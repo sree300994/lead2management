@@ -1,0 +1,36 @@
+<h2>Edit Prospect</h2>
+<%= form_for @prospect do |f| %>
+	<% if @prospect.errors.any? %>
+		<% @prospect.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	<% end %>
+
+	<div class="form-group">
+		<label>Full Name : </label><br/>
+		<%= f.text_field :full_name, autofocus: true, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Email : </label> <br/>
+		<%= f.email_field :email, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Mobile : </label> <br/>
+		<%= f.text_field :mobile, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Location : </label> <br/>
+		<%= f.text_field :location, class: "form-control" %> <br/>
+	</div>
+
+	<div class="form-group">
+		<label>Stage : </label> <br/>
+		<%= f.collection_select :stage_id, Stage.all, :id, :name, prompt: "Select Stage", class: "form-control" %> <br/>
+	</div>
+
+	<%= f.submit %> or <%= link_to "Back", prospects_path %>
+<% end %>
+

@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-7">
+		<div class="page-header">
+			<h2>Listing Stages</h2>
+		</div>
+		<% if @stages.empty? %>
+			<p>No Stages Found</p>
+		<% else %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>InterestLevel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @stages.each do |stage| %>
+						<tr>
+							<td><%= link_to stage.name, stage %></td>
+							<td><%= stage.description %></td>
+							<td><%= stage.interest_level %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<% end %>
+	</div>
+	<% if can? :create, Stage.new %>
+		<div class="col-md-5">
+			<div class="page-header">
+				<h2>Add Stage</h2>
+			</div>
+			<%= render 'form' %>
+		</div>
+	<% end %>
+</div>
+
+

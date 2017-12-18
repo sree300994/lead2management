@@ -1,0 +1,8 @@
+<% if @user.errors.any? %>
+	$('#errorMsg').html("<%= escape_javascript render 'errors' %>");
+<% else %>
+	$('#errorMsg').hide();
+	$('#listUsers').append("<%= escape_javascript render 'users' %>")
+	$('#new_user')[0].reset();
+<% end %>
+

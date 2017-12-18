@@ -1,0 +1,15 @@
+<h2><%= @prospect.full_name %></h2>
+
+<p><b>Name : </b><%= @prospect.full_name %></p>
+<p><b>Email : </b><%= @prospect.email %></p>
+<p><b>Mobile : </b><%= @prospect.mobile %></p>
+<p><b>Location : </b><%= @prospect.location %></p>
+<p><b>Stage : </b><%= @prospect.stage.name %></p>
+
+<%= link_to "Invite", new_user_invitation_path(prospect_id: @prospect.id) %>
+<% if can? :update, @prospect %>
+	<%= link_to "Edit", edit_prospect_path(@prospect) %>|
+<% end %>
+<%= link_to "Destroy", prospect_path(@prospect), method: :delete %>
+
+

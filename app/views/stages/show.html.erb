@@ -1,0 +1,11 @@
+<h2><%= @stage.name %></h2>
+
+<p><b>Name : </b><%= @stage.name %></p>
+
+<p><b>Description : </b><%= @stage.description %></p>
+
+<p><b>Interest Level : </b><%= @stage.interest_level %></p>
+
+<%= link_to "Edit", edit_stage_path(@stage) %>
+
+<%= link_to "Destroy", stage_path(@stage), method: :delete %>

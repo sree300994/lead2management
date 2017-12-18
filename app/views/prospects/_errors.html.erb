@@ -1,0 +1,8 @@
+<div class="alert alert-danger">
+	<% if @prospect.errors.any? %>
+		<h3>These errors prohibitted the form from being saved : </h3>
+		<% @prospect.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	<% end %>
+</div>

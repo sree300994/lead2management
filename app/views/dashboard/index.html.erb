@@ -1,0 +1,32 @@
+<h2>Listing Customers</h2>
+
+<% if @customers.empty? %>
+	<p>No Customers Found</p>
+<% else %>
+	<table class="table" id="listCustomers">
+		<thead>
+			<th>Full Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Location</th>
+			<th>User</th>
+		</thead>
+		<tbody>
+			<% @customers.each do |customer| %>
+				<tr>
+					<td><%= customer.full_name %></td>
+					<td><%= customer.email %></td>
+					<td><%= customer.mobile %></td>
+					<td><%= customer.location %></td>
+					<td><%= customer.user.full_name %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<script>
+	$(document).ready(function(){
+    	$('#listCustomers').DataTable();
+	});
+</script>
