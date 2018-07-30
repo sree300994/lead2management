@@ -11,5 +11,8 @@ Role.create(name: "salesAssociate")
 
 User.create(full_name: "admin", email: "admin@gmail.com", password: "123456", password_confirmation: "123456", mobile: "9876543210", role_id: Role.find_by(name: "salesManager").id)
 
-
+Stage.create(name: "New Opportunity", description: "This stage is assigned as default when a prospect is created.", interest_level: 1)
+Stage.create(name: "Negotiating", description: "This stage is assigned after the prospect responds to a proposal, but requests some changes before committing to a purchase.", interest_level: 2)
+Stage.new(name: "Won", description: "This stage is assigned after the prospect makes a purchase. This is when a customer record is created and a prospect record is archived.", interest_level: 3)
+Stage.new(name: "Lost", description: "This stage is assigned if a Prospect purchases from a competitor or decides they are no longer interested in your product.", interest_level: 4)
 
